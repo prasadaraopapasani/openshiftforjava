@@ -16,6 +16,8 @@ plugins {
 
 
 apply plugin: 'com.google.cloud.tools.jib'
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
 group = 'com.bank'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -36,5 +38,9 @@ test {
 }
 
 bootJar {
-    mainClassName = ' com.bank.app.BankAppApplication'
+   classifier="."
+}
+
+springBoot {
+	mainClassName = 'com.bank.app.BankAppApplication'
 }
